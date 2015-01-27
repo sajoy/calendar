@@ -8,7 +8,7 @@ require('pg')
 
 
 get("/") do
-  @events = Event.order(start_date: :asc)
+  @events = Event.future_events().order(start_date: :asc)
   erb(:index)
 end
 

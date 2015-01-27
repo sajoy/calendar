@@ -1,5 +1,9 @@
-<% if @events.any?() %>
 
+    Upcoming events:
+  </small>
+</h1>
+
+<% if @events.any?() %>
   <ul>
     <% @events.each() do |event| %>
       <li> <a href="/event/<%= event.id() %>"><%= event.description() %> </a> </li>
@@ -16,8 +20,7 @@
 <% end %>
 
  Add an Event
- </small>
- </h1>
+
 <form action="/events" method="post">
   <div class = "form-group">
     <label for="description"> Enter an Event's Name</label>
@@ -89,6 +92,5 @@
           <% end %>
       </select>
   </div>
-
   <button class="btn" type="submit">Add Event</button>
 </form>

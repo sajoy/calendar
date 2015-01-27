@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
-  #default_scope { order(:start_date >= Time.new()) }
 
+  scope(:future_events, -> do
+    where("start_date > ?", Time.now() )
+  end)
 
   validates(:description, :presence => true)
   validates(:location, :presence => true)
