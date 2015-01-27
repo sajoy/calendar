@@ -1,0 +1,94 @@
+<% if @events.any?() %>
+
+  <ul>
+    <% @events.each() do |event| %>
+      <li> <a href="/event/<%= event.id() %>"><%= event.description() %> </a> </li>
+        <ul>
+          <li>location: <%= event.location() %></li>
+          <li>start: <%= event.start_date() %></li>
+          <li>end: <%= event.end_date() %></li>
+        </ul>
+    <% end %>
+  </ul>
+
+
+
+<% end %>
+
+ Add an Event
+ </small>
+ </h1>
+<form action="/events" method="post">
+  <div class = "form-group">
+    <label for="description"> Enter an Event's Name</label>
+    <input type="text" name="description" class="form-control" id="description">
+  </div>
+  <div class = "form-group">
+    <label for="location"> Location:</label>
+    <input type="text" name="location" class="form-control" id="location">
+  </div>
+
+  <div class="form-group">
+    <label for="date_year">Select a start date</label>
+    <select id="date_year" name="date_year" type="text">
+      <% year = 2015 %>
+      <% 20.times() do |y| %>
+        <option value="<%= year %>"> <%= year %> </option>
+        <% year = year.+(1) %>
+        <% end %>
+    </select>
+
+    <select id="date_month" name="date_month" type="text">
+      <% month = 01 %>
+      <% 12.times() do |m| %>
+        <option value="<%= month %>"> <%= month %> </option>
+        <% month = month.+(1) %>
+        <% end %>
+    </select>
+
+    <select id="date_day" name="date_day" type="text">
+      <% day = 01 %>
+      <% 31.times() do |d| %>
+        <option value="<%= day %>"> <%= day %> </option>
+        <% day = day.+(1) %>
+        <% end %>
+    </select>
+    <br>
+  <label for="date_year">And a start time:</label>
+    <select id="start_time_hour" name="start_time_hour" type="text">
+      <% hour = 01 %>
+      <% 24.times() do |m| %>
+        <option value="<%= hour %>"> <%= hour %> </option>
+        <% hour = hour.+(1) %>
+        <% end %>
+    </select>
+
+    <select id="start_time_minute" name="start_time_minute" type="text">
+      <% minute = 00 %>
+      <% 60.times() do |h| %>
+        <option value="<%= minute %>"> <%= minute %> </option>
+        <% minute = minute.+(1) %>
+        <% end %>
+    </select>
+    <br>
+
+    <label for="date_year">What time is it over?</label>
+      <select id="end_time_hour" name="end_time_hour" type="text">
+        <% hour = 01 %>
+        <% 24.times() do |m| %>
+          <option value="<%= hour %>"> <%= hour %> </option>
+          <% hour = hour.+(1) %>
+          <% end %>
+      </select>
+
+      <select id="end_time_minute" name="end_time_minute" type="text">
+        <% minute = 00 %>
+        <% 60.times() do |h| %>
+          <option value="<%= minute %>"> <%= minute %> </option>
+          <% minute = minute.+(1) %>
+          <% end %>
+      </select>
+  </div>
+
+  <button class="btn" type="submit">Add Event</button>
+</form>

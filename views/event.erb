@@ -1,0 +1,23 @@
+Edit Event "<%= @event.description() %>"
+</small>
+</h1>
+<form action="/event/edit/<%= @event.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <div class = "form-group">
+    <label for="description"> Enter an Event's Name</label>
+    <input type="text" name="description" class="form-control" id="description" value="<%= @event.description() %>">
+  </div>
+  <div class = "form-group">
+    <label for="location"> Location:</label>
+    <input type="text" name="location" class="form-control" id="location"  value="<%= @event.location() %>">
+  </div>
+  <div class = "form-group">
+    <label for="start_date"> Start date</label>
+    <input type="text" name="start_date" class="form-control" id="start_date"  value="<%= @event.start_date() %>">
+  </div>
+  <div class = "form-group">
+    <label for="end_date"> End date</label>
+    <input type="text" name="end_date" class="form-control" id="end_date" value="<%= @event.end_date() %>">
+  </div>
+  <button class="btn" type="submit">Update Event</button>
+</form>
