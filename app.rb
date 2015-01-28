@@ -8,7 +8,7 @@ require('pg')
 
 
 get("/") do
-  @events = Event.future_events().order(start_date: :asc)
+  @events = Event.week_events().order(start_date: :asc)
   erb(:index)
 end
 
@@ -37,4 +37,10 @@ patch('/event/edit/:id') do
   @event = Event.find(id)
   @event.update({:description => description, :location => location, :start_date => start_date, :end_date => end_date})
   redirect '/ '
+end
+
+get('/all_events') do
+  @events = Event.all()
+  erb(:all_events)
+
 end

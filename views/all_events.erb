@@ -1,0 +1,16 @@
+ALL THE EVENTS
+</small></h1>
+<% if @events.any?() %>
+  <ul>
+    <% @events.each() do |event| %>
+      <div class="col-md-2">
+      <li> <%= event.start_date().month() %>/<%= event.start_date().day() %>: <a href="/event/<%= event.id() %>"><%= event.description() %> </a> </li>
+        <ul>
+          <li>location: <a href="https://www.google.com/maps/search/<%= event.location() %>/" target="_blank"><%= event.location() %></a></li>
+          <li><%= event.start_date().hour().to_s + ":" + event.start_date().min().to_s %> to <%= event.end_date().hour().to_s + ":" + event.end_date().min().to_s %></li>
+        </ul>
+      </div>
+    <% end %>
+  </ul>
+
+<% end %>

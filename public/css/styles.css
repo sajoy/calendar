@@ -1,1 +1,28 @@
 ul { list-style: none;}
+
+/*
+form { width: 600px;}
+*/
+
+body {
+    background-image: url("../img/bg.jpg");
+    background-color: #ffffff;
+    padding: 10px;
+}
+.col-md-2 {
+	background-color: #ffffff;
+	border-radius: 10px;
+  min-height: 150px;
+	opacity: 0.9;
+	margin: 10px;
+  padding: 5px;
+}
+
+.col-md-12 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  opacity: 0.9;
+  padding: 5px;
+}
+.btn {
+}

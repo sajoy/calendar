@@ -1,24 +1,23 @@
 
-    Upcoming events:
+    Upcoming events: (<a href="/all_events">view all</a>)
   </small>
 </h1>
 
 <% if @events.any?() %>
   <ul>
     <% @events.each() do |event| %>
-      <li> <a href="/event/<%= event.id() %>"><%= event.description() %> </a> </li>
+      <div class="col-md-2">
+      <li> <%= event.start_date().month() %>/<%= event.start_date().day() %>: <a href="/event/<%= event.id() %>"><%= event.description() %> </a> </li>
         <ul>
-          <li>location: <%= event.location() %></li>
-          <li>start: <%= event.start_date() %></li>
-          <li>end: <%= event.end_date() %></li>
+          <li>location: <a href="https://www.google.com/maps/search/<%= event.location() %>/" target="_blank"><%= event.location() %></a></li>
+          <li><%= event.start_date().hour().to_s + ":" + event.start_date().min().to_s %> to <%= event.end_date().hour().to_s + ":" + event.end_date().min().to_s %></li>
         </ul>
+      </div>
     <% end %>
   </ul>
 
-
-
 <% end %>
-
+<div class="col-md-12">
  Add an Event
 
 <form action="/events" method="post">
@@ -94,3 +93,4 @@
   </div>
   <button class="btn" type="submit">Add Event</button>
 </form>
+</div>
