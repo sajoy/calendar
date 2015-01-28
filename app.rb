@@ -40,7 +40,7 @@ patch('/event/edit/:id') do
 end
 
 get('/all_events') do
-  @events = Event.all()
+  @events = Event.order(start_date: :asc)
   erb(:all_events)
 
 end
